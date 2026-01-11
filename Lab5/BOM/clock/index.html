@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <button onclick="startClock()">Start Clock</button>
+        <p id="clock"></p>
+
+        <script>
+            let timer = null;
+
+            function startClock() {
+                alert("Clock Started");
+
+                timer = setInterval(function () {
+                    let time = new Date().toLocaleTimeString();
+                    let clock = document.getElementById("clock");
+                    clock.innerHTML = time;
+                }, 1000);
+            }
+
+            document.addEventListener("keydown", function (e) {                
+                if (e.altKey && e.key === "w" ) {
+                    clearInterval(timer);
+                    alert("Clock stopped");
+                }
+            });
+        </script>
+    </body>
+</html>

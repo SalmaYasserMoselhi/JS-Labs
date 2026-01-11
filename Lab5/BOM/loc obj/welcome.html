@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2 id="welcome"></h2>
+    <ul id="user-info"></ul>
+
+    <script>
+        console.log(location);
+        
+        let params = new URLSearchParams(location.search);
+
+        let welcome = document.getElementById("welcome");
+        welcome.innerHTML = "Welcome " + params.get("name");
+
+        let info = document.getElementById("user-info");
+        info.innerHTML = `<li>Email: ${params.get("email")}</li>
+                        <li>Mobile: ${params.get("mobile")}</li>
+                        <li>Address: ${params.get("address")}</li>`;
+    </script>
+</body>
+</html>

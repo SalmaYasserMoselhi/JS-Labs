@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form onsubmit="goToWelcome(event)">
+        <label for="name">Name:</label>
+        <input type="text" id="name">
+        <br><br>
+        <label for="email">Email:</label>
+        <input type="text" id="email">
+        <br><br>
+        <label for="mobile">Mobile:</label>
+        <input type="text" id="mobile">
+        <br><br>
+        <label for="address">Address:</label>
+        <input type="text" id="address">
+        <br><br>
+        <button type="submit">Register</button>
+    </form>
+
+    <p id="timeoutMsg" style="color:red"></p>
+
+    <script>
+        console.log(location);
+        let timer = setTimeout(function () {
+            let timeoutMsg = document.getElementById("timeoutMsg");
+            timeoutMsg.innerHTML = "Timeout, No data entered";
+        }, 30000);
+
+        function goToWelcome(e) {
+            e.preventDefault();
+            clearTimeout(timer);
+
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let mobile = document.getElementById("mobile").value;
+            let address = document.getElementById("address").value;
+            
+
+            location.href =
+            `welcome.html?name=${name}&email=${email}&mobile=${mobile}&address=${address}`;
+        }
+    </script>
+
+</body>
+</html>

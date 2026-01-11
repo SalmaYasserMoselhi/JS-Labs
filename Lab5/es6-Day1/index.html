@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1 
+        let a = 10;
+        let b = 20;
+        console.log(`Before Swap: a = ${a}, b = ${b}`);
+        [a, b] = [b, a];
+        console.log(`After Swap: a = ${a}, b = ${b}`);
+
+        // 2
+        function getMinMax(...numbers) {
+            let min = Math.min(...numbers);
+            let max = Math.max(...numbers);
+
+            return { min, max };
+        }
+        let { min, max } = getMinMax(8, 2, 15, 4);
+        console.log("Min =", min);
+        console.log("Max =", max);
+
+    </script>
+</body>
+</html>
