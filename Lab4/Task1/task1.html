@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            #FirstDiv {
+                width: 200px;
+                height: 200px;
+                background-color: lightblue;
+                margin: 10px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                font-weight: bold;
+            }
+            .clone {
+                pointer-events: none;
+                cursor: default;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="FirstDiv" onclick="cloneDiv()">Click me</div>
+
+        <script>
+            function cloneDiv() {
+                let clonedDiv = document.querySelector("#FirstDiv").cloneNode(true);
+                let randomColor = Math.floor(Math.random() * 16777215).toString(16);
+                
+                clonedDiv.style.backgroundColor = "#" + randomColor;
+                clonedDiv.textContent = `My color is #${randomColor}`;
+                clonedDiv.classList.add("clone");
+                document.body.appendChild(clonedDiv);
+            }
+        </script>
+    </body>
+</html>

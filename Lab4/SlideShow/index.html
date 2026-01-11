@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding: 20px;
+      }
+      #slideImage {
+        width: 400px;
+        height: 300px;
+        object-fit: cover;
+        display: block;
+        margin: 20px auto;
+        border: 2px solid #333;
+      }
+      .controls {
+        margin: 10px;
+      }
+      button {
+        padding: 10px 20px;
+        margin: 5px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Photo Gallery</h1>
+
+    <img id="slideImage" src="1.jpg" alt="Slideshow" />
+    <p>Image <span id="counter">1</span> of 6</p>
+
+    <div class="controls">
+      <button id="prevBtn" onclick="previous()">Previous</button>
+      <button onclick="startSlideshow()">Slideshow</button>
+      <button onclick="stopSlideshow()">Stop</button>
+      <button id="nextBtn" onclick="next()">Next</button>
+    </div>
+
+    <script>
+      const images = ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg"];
+      let currentIndex = 0;
+      let intervalId = null;
+
+      const img = document.getElementById("slideImage");
+      const counter = document.getElementById("counter");
+
+      function updateImage() {
+        img.src = images[currentIndex];
+        counter.textContent = currentIndex + 1;
+      }
+
+      function next() {
+        if (currentIndex < images.length - 1) {
+          currentIndex++;
+          updateImage();
+        }
+      }
+
+      function previous() {
+        if (currentIndex > 0) {
+          currentIndex--;
+          updateImage();
+        }
+      }
+
+      function startSlideshow() {
+        if (intervalId) return;
+        intervalId = setInterval(function () {
+          currentIndex++;
+          if (currentIndex >= images.length) {
+            currentIndex = 0;
+          }
+          updateImage();
+        }, 2000);
+      }
+
+      function stopSlideshow() {
+        clearInterval(intervalId);
+        intervalId = null;
+      }
+    </script>
+  </body>
+</html>

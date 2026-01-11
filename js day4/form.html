@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span{
+            color :red;
+            display: none;
+        }
+        .invalid{
+            border:1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <form onsubmit="validate(event)">
+        <input type="text" name="name" onchange="inputData()">
+        <!-- <span>*this filed is required</span> -->
+        <!-- <span>name should be characters</span> -->
+         <span></span>
+        <input type="submit">
+
+        <!-- <input type="submit" onclick="validate(event)"> -->
+
+    </form>
+    <script src="form.js"></script>
+</body>
+</html>

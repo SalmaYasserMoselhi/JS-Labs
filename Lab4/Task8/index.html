@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background: #f5d36a;
+        font-family: Arial;
+        padding: 30px;
+      }
+
+      table {
+        border-collapse: collapse;
+        margin-top: 20px;
+        width: 400px;
+      }
+
+      table,
+      th,
+      td {
+        border: 2px solid #555;
+        text-align: center;
+      }
+
+      th {
+        background: #ddd;
+      }
+
+      input {
+        margin: 5px;
+      }
+
+      .error {
+        color: red;
+        font-size: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <label for="name">Name:</label>
+    <input type="text" id="name" />
+    <br />
+
+    <label for="age">Age:</label>
+    <input type="text" id="age" />
+    <span class="error" id="ageError"></span>
+    <br />
+
+    <label for="email">Email:</label>
+    <input type="text" id="email" />
+    <span class="error" id="error"></span>
+    <br /><br />
+
+    <button onclick="addData()">Add</button>
+    <button onclick="resetForm()">Reset</button>
+
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Email</th>
+      </tr>
+      <tbody id="tableBody"></tbody>
+    </table>
+
+    <script src="script.js"></script>
+  </body>
+</html>

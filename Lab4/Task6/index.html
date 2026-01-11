@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Alert ASCII Code of any key pressed and detect whether it is alt key or ctrl key or shift key.
+
+      document.addEventListener("keydown", function (event) {
+        var keys = [];
+
+        if (event.altKey) keys.push("Alt");
+        if (event.ctrlKey) keys.push("Ctrl");
+        if (event.shiftKey) keys.push("Shift");
+
+        if (!["Control", "Alt", "Shift"].includes(event.key))
+          keys.push(event.key);
+        console.log("Keys pressed:", keys.join(" + "));
+
+        if (event.key.length === 1) console.log("ASCII Value:", event.key.charCodeAt(0));
+      });
+    </script>
+  </body>
+</html>

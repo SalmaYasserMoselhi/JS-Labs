@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="marble-container" id="container">
+      <div class="marble"></div>
+      <div class="marble"></div>
+      <div class="marble"></div>
+      <div class="marble"></div>
+      <div class="marble"></div>
+    </div>
+
+    <script>
+      var marbles = document.getElementsByClassName("marble");
+      var currentPos = 0;
+      var intervalId = null;
+
+      // Set up each marble
+      for (var i = 0; i < marbles.length; i++) {
+        marbles[i].style.width = "50px";
+        marbles[i].style.height = "50px";
+        marbles[i].style.display = "inline-block";
+        marbles[i].style.margin = "5px";
+        marbles[i].style.cursor = "pointer";
+        marbles[i].style.backgroundSize = "cover";
+
+        marbles[i].addEventListener("mouseenter", function () {
+          stopAnimation();
+        });
+
+        marbles[i].addEventListener("mouseleave", function () {
+          startAnimation();
+        });
+      }
+
+      function updateMarbles() {
+        for (var i = 0; i < marbles.length; i++) {
+          if (i === currentPos) {
+            marbles[i].style.backgroundImage = "url('marble2.jpg')";
+          } else {
+            marbles[i].style.backgroundImage = "url('marble1.jpg')";
+          }
+        }
+      }
+
+      function moveNext() {
+        currentPos++;
+        if (currentPos >= marbles.length) {
+          currentPos = 0;
+        }
+        updateMarbles();
+      }
+
+      function startAnimation() {
+        if (intervalId) return;
+        intervalId = setInterval(moveNext, 1000);
+      }
+
+      function stopAnimation() {
+        clearInterval(intervalId);
+        intervalId = null;
+      }
+
+      updateMarbles();
+      startAnimation();
+    </script>
+  </body>
+</html>
