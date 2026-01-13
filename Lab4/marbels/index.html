@@ -4,6 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      .marble {
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        margin: 10px;
+        background-size: cover;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+    </style>
   </head>
   <body>
     <div class="marble-container" id="container">
@@ -16,17 +27,12 @@
 
     <script>
       var marbles = document.getElementsByClassName("marble");
+      // console.log(marbles);
+      
       var currentPos = 0;
       var intervalId = null;
 
       for (var i = 0; i < marbles.length; i++) {
-        marbles[i].style.width = "50px";
-        marbles[i].style.height = "50px";
-        marbles[i].style.display = "inline-block";
-        marbles[i].style.margin = "5px";
-        marbles[i].style.cursor = "pointer";
-        marbles[i].style.backgroundSize = "cover";
-
         marbles[i].addEventListener("mouseenter", function () {
           stopAnimation();
         });
@@ -55,7 +61,7 @@
       }
 
       function startAnimation() {
-        if (intervalId) return;
+        if (intervalId) return; 
         intervalId = setInterval(moveNext, 1000);
       }
 

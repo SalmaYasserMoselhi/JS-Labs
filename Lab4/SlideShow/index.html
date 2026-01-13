@@ -54,7 +54,7 @@
         counter.textContent = currentIndex + 1;
       }
 
-      function next() {
+      function next(circular) {
         if (currentIndex < images.length - 1) {
           currentIndex++;
           updateImage();
