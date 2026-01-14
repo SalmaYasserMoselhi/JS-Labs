@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Users & Posts</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Users & Posts</h1>
+      <p class="subtitle">Click on a user tab to view their posts</p>
+
+      <div id="loading" class="loading">
+        <div class="spinner"></div>
+        <p>Loading users...</p>
+      </div>
+
+      <div id="error-message" class="error-message hidden"></div>
+
+      <div id="users-container" class="users-container hidden"></div>
+
+      <div id="posts-container" class="posts-container hidden">
+        <h2 id="posts-title">Posts</h2>
+        <div id="posts-loading" class="loading hidden">
+          <div class="spinner"></div>
+          <p>Loading posts...</p>
+        </div>
+        <div id="posts-error" class="error-message hidden"></div>
+        <ul id="posts-list"></ul>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
